@@ -17,7 +17,7 @@ export interface Result {
   url: string
 }
 
-export const getPokemon = async (param: getAllPokemonTypes): Promise<any> =>
+export const getPokemon = async (param: getAllPokemonTypes): Promise<PokemonListResponse> =>
   await api.get('/pokemon', {
     params: {
       ...param,
