@@ -5,13 +5,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-
-      },
-      height: {
-        128: "32rem",
-      },
-      width: {
-        128: "32rem",
+        normal: '#A8A77A',
+        fire: '#EE8130',
+        water: '#6390F0',
+        electric: '#F7D02C',
+        grass: '#7AC74C',
+        ice: '#96D9D6',
+        fighting: '#C22E28',
+        poison: '#A33EA1',
+        ground: '#E2BF65',
+        flying: '#A98FF3',
+        psychic: '#F95587',
+        bug: '#A6B91A',
+        rock: '#B6A136',
+        ghost: '#735797',
+        dragon: '#6F35FC',
+        dark: '#705746',
+        steel: '#B7B7CE',
+        fairy: '#D685AD',
+        unknown: '#24273a',
+        shadow: '#24273a'
       },
     },
   },
@@ -27,7 +40,27 @@ const config: Config = {
           info: "#04a5e5", // biru langit latte
           success: "#40a02b", // hijau latte
           warning: "#df8e1d", // kuning latte
-          error: "#ce5050",
+          error: "#ed8796",
+          normal: '#A8A77A',
+          fire: '#EE8130',
+          water: '#6390F0',
+          electric: '#F7D02C',
+          grass: '#7AC74C',
+          ice: '#96D9D6',
+          fighting: '#C22E28',
+          poison: '#A33EA1',
+          ground: '#E2BF65',
+          flying: '#A98FF3',
+          psychic: '#F95587',
+          bug: '#A6B91A',
+          rock: '#B6A136',
+          ghost: '#735797',
+          dragon: '#6F35FC',
+          dark: '#705746',
+          steel: '#B7B7CE',
+          fairy: '#D685AD',
+          unknown: '#24273a',
+          shadow: '#24273a'
         },
       },
     ],

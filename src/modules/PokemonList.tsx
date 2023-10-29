@@ -29,7 +29,7 @@ const PokemonList: FC = () => {
     setActivePage(selectedItem.selected)
   }
 
-  const handleDetailClick = (name: string) => {
+  const handleDetailClick = (name: string, type: string) => {
     setSelectedName(name)
     const modal = document.getElementById('detail_modal') as HTMLDialogElement | null
     if (modal) {
@@ -37,7 +37,7 @@ const PokemonList: FC = () => {
     }
   }
 
-  const getTypeColor = useCallback((type: string) => {
+  const getTypeColor = useCallback((input: string) => {
     const typeColors: Record<string, string> = {
       normal: 'bg-[#A8A77A]',
       fire: 'bg-[#EE8130]',
@@ -59,12 +59,11 @@ const PokemonList: FC = () => {
       fairy: 'bg-[#D685AD]',
     }
 
-    return typeColors[type] || 'bg-base-100'
+    return typeColors[input] || 'bg-base-100'
   }, [])
 
   useEffect(() => {
     if (isFetched) {
-      console.log(data)
       setListPokemon(data)
     }
   }, [isFetched, data])
@@ -82,7 +81,6 @@ const PokemonList: FC = () => {
 
         const details = await Promise.all(detailsPromises)
         setPokemonDetails(details)
-        console.log(details)
       }
 
       fetchPokemonDetails()
@@ -109,7 +107,7 @@ const PokemonList: FC = () => {
 
               return (
                 <div
-                  className={`card card-compact border-4 rounded-xl border-[#fff] w-72 shadow-xl ${backgroundColorClass}`}
+                  className={`card card-compact border-4 rounded-xl border-white w-72 shadow-xl ${backgroundColorClass}`}
                   key={idx}
                 >
                   <figure>
@@ -157,7 +155,7 @@ const PokemonList: FC = () => {
                     <div className='card-actions justify-end'>
                       <button
                         className='btn btn-sm text-primary bg-[#ed8796]'
-                        onClick={() => handleDetailClick(name)}
+                        onClick={() => handleDetailClick(name, pokemonDetail?.types[0].type.name)}
                       >
                         Detail
                       </button>
