@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getPokemon, PokemonListResponse } from '@/services/get-all-pokemon-service'
-import { capitalizeFirstLetter, extractNumber, generateTypes } from '@/utils/utils'
+import { capitalizeFirstLetter, extractNumber, generateTypes, typeColors } from '@/utils/utils'
 import { PokemonDetailsTypes, Type } from '@/types/PokemonDetailTypes'
 import Pagination from '@/components/pagination/Pagination'
 import Modal from '@/components/modal/Modal'
@@ -38,27 +38,6 @@ const PokemonList: FC = () => {
   }
 
   const getTypeColor = useCallback((input: string) => {
-    const typeColors: Record<string, string> = {
-      normal: 'bg-[#A8A77A]',
-      fire: 'bg-[#EE8130]',
-      water: 'bg-[#6390F0]',
-      electric: 'bg-[#F7D02C]',
-      grass: 'bg-[#7AC74C]',
-      ice: 'bg-[#96D9D6]',
-      fighting: 'bg-[#C22E28]',
-      poison: 'bg-[#A33EA1]',
-      ground: 'bg-[#E2BF65]',
-      flying: 'bg-[#A98FF3]',
-      psychic: 'bg-[#F95587]',
-      bug: 'bg-[#A6B91A]',
-      rock: 'bg-[#B6A136]',
-      ghost: 'bg-[#735797]',
-      dragon: 'bg-[#6F35FC]',
-      dark: 'bg-[#705746]',
-      steel: 'bg-[#B7B7CE]',
-      fairy: 'bg-[#D685AD]',
-    }
-
     return typeColors[input] || 'bg-base-100'
   }, [])
 
