@@ -40,7 +40,7 @@ const Modal: FC<ModalTypes> = ({ name }) => {
               />
             </figure>
             <div>
-              <h3 className='mb-4 p-2 bg-[#1e1e2e] rounded-lg text-center'>{capitalizeFirstLetter(name)}</h3>
+              <h3 className='mb-4 sm:w-[320px] max-w-[320px] p-2 bg-[#1e1e2e] rounded-lg text-center'>{capitalizeFirstLetter(name)}</h3>
               <Tabs>
                 <TabList className='tabs mb-2'>
                   <Tab className='tab'>About</Tab>
@@ -109,7 +109,7 @@ const Modal: FC<ModalTypes> = ({ name }) => {
                   {detailPokemon &&
                     detailPokemon?.stats?.map((stat: Stat, statIdx: number) => (
                       <tr key={statIdx}>
-                        <td className='px-2 py-1'>{stat.stat.name}</td>
+                        <td className='px-2 py-1'>{capitalizeFirstLetter(stat.stat.name)}</td>
                         <td className={stat.base_stat <= 100 ? 'px-2 py-1 text-accent flex items-center gap-2' : 'px-2 py-1 text-error flex items-center gap-2'}>{stat.base_stat}</td>
                         <td>
                           <progress
@@ -126,7 +126,7 @@ const Modal: FC<ModalTypes> = ({ name }) => {
           </div>
           <div className='modal-action'>
             <form method='dialog'>
-              <button className='btn'>Close</button>
+              <button className='btn text-base-100 hover:text-primary bg-[#ed8796] normal-case'>Close</button>
             </form>
           </div>
         </div>

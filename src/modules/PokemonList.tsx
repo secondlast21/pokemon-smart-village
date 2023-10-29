@@ -130,7 +130,7 @@ const PokemonList: FC = () => {
                       <h2 className='card-title text-sm'>{capitalizeFirstLetter(name)}</h2>
                     )}
                     <br />
-                    <div className='card-actions justify-end'>
+                    <div className='card-actions justify-end mb-2'>
                       {pokemonDetail &&
                         pokemonDetail.types.map((type: Type, typeIdx: number) => (
                           <div
@@ -154,7 +154,7 @@ const PokemonList: FC = () => {
                     </div>
                     <div className='card-actions justify-end'>
                       <button
-                        className='btn btn-sm text-primary bg-[#ed8796]'
+                        className='btn btn-sm text-base-100 hover:text-primary bg-[#ed8796] normal-case'
                         onClick={() => handleDetailClick(name, pokemonDetail?.types[0].type.name)}
                       >
                         Detail
