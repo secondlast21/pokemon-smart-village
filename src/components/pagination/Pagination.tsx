@@ -23,7 +23,7 @@ const Pagination: FC<PaginationProps> = ({ pageCount, onPageChange, activePage }
         pageClassName='text-primary cursor-pointer'
         previousClassName='text-primary cursor-pointer'
         nextClassName='text-primary cursor-pointer'
-        activeClassName='text-accent'
+        activeClassName='text-error'
         disabledClassName='text-gray-300 cursor-not-allowed'
         forcePage={activePage}
       />
