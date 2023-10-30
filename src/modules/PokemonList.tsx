@@ -13,6 +13,7 @@ const PokemonList: FC = () => {
   const [pokemonDetails, setPokemonDetails] = useState<PokemonDetailsTypes[]>([])
   const [activePage, setActivePage] = useState<number>(0)
   const [selectedName, setSelectedName] = useState<string>('')
+  const [selectedUrl, setSelectedUrl] = useState<string>('')
 
   const { data, isFetched, isFetching } = useQuery({
     queryKey: ['getPokemon', offset],
@@ -29,8 +30,9 @@ const PokemonList: FC = () => {
     setActivePage(selectedItem.selected)
   }
 
-  const handleDetailClick = (name: string, type: string) => {
+  const handleDetailClick = (name: string, url: string) => {
     setSelectedName(name)
+    setSelectedUrl(url)
     const modal = document.getElementById('detail_modal') as HTMLDialogElement | null
     if (modal) {
       modal.showModal()
@@ -134,7 +136,9 @@ const PokemonList: FC = () => {
                     <div className='card-actions justify-end'>
                       <button
                         className='btn btn-sm text-base-100 hover:text-primary bg-[#ed8796] normal-case'
-                        onClick={() => handleDetailClick(name, pokemonDetail?.types[0].type.name)}
+                        onClick={() => handleDetailClick(name, `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${extractNumber(
+                            url
+                        )}.png`)}
                       >
                         Detail
                       </button>
@@ -162,7 +166,7 @@ const PokemonList: FC = () => {
           )}
 
           {/*Detail Modal*/}
-          <Modal name={selectedName} />
+          <Modal name={selectedName} url={selectedUrl} />
         </>
       )}
     </>

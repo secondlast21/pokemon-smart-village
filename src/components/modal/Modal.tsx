@@ -10,9 +10,10 @@ import pokemonLogo from '../../../public/pokeball.svg'
 
 interface ModalTypes {
   name: string
+  url: string
 }
 
-const Modal: FC<ModalTypes> = ({ name }) => {
+const Modal: FC<ModalTypes> = ({ name, url }) => {
   const [detailPokemon, setDetailPokemon] = useState<PokemonDetailsTypes>()
   const { data, isFetched, isFetching } = useQuery({
     queryKey: ['getPokemon', name],
@@ -21,6 +22,8 @@ const Modal: FC<ModalTypes> = ({ name }) => {
 
   useEffect(() => {
     console.log(data)
+    console.log(name)
+    console.log(url)
     setDetailPokemon(data)
   }, [data, name])
 
@@ -34,7 +37,7 @@ const Modal: FC<ModalTypes> = ({ name }) => {
           <div className='flex items-center flex-wrap gap-2'>
             <figure className='flex items-center'>
               <img
-                src={detailPokemon?.sprites?.front_default ? detailPokemon?.sprites?.front_default : pokemonLogo.src}
+                src={detailPokemon?.sprites?.front_default ? url : pokemonLogo.src}
                 alt={name}
                 className={`w-32 h-32 mask mask-squircle ${typeColors[detailPokemon?.types?.[0].type.name]} p-2`}
               />

@@ -71,7 +71,7 @@ export function capitalizeFirstLetter(str: string) {
 
 export function extractNumber(url: string) {
   const match = url.match(/\/(\d+)\/$/)
-  return match ? match[1] : null
+  return match ? match[1] : ''
 }
 
 export function generateTypes(input: string) {
